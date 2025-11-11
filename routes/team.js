@@ -1,11 +1,12 @@
-const express = require("express");
-const { body, validationResult } = require("express-validator");
-const Team = require("../models/Team.js");
-const User = require("../models/User.js");
-const auth = require("../middleware/auth.js");
-const Project = require('../models/Project');
+import express from "express";
+import { body, validationResult } from "express-validator";
+import Team from "../models/Team.js";
+import User from "../models/User.js";
+import auth from "../middleware/auth.js";
+import Project from "../models/Project.js";
 
 const router = express.Router();
+
 
 // Get all teams for current user
 router.get("/", auth, async (req, res) => {
@@ -408,4 +409,4 @@ router.get("/:id/activity", auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

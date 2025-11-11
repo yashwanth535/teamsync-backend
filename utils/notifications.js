@@ -1,4 +1,5 @@
-const Notification = require("../models/Notification");
+import Notification from "../models/Notification.js";
+
 
 const sendNotification = async (
   io,
@@ -28,6 +29,5 @@ const sendNotification = async (
   }
 };
 
-module.exports = {
-  sendNotification,
-};
+export { sendNotification };
+

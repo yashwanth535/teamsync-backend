@@ -25,4 +25,4 @@ const errorHandler = (err, req, res, next) => {
   res.status(error.status).json(error);
 };
 
-module.exports = errorHandler;
+export default errorHandler;

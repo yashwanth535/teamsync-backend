@@ -1,4 +1,5 @@
-const crypto = require("crypto");
+import crypto from "crypto";
+
 
 // Generate secure random token
 const generateToken = (length = 32) => {
@@ -53,7 +54,7 @@ const parseQueryParams = (query) => {
   return { page, limit, sort };
 };
 
-module.exports = {
+export {
   generateToken,
   isValidEmail,
   isStrongPassword,
@@ -61,3 +62,4 @@ module.exports = {
   formatErrorMessage,
   parseQueryParams,
 };
+

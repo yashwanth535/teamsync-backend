@@ -1,11 +1,12 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const auth = require("../middleware/auth");
-const Project = require("../models/Project");
-const User = require("../models/User");
-const Task = require("../models/Task");
-const Activity = require("../models/Activity");
-const Event = require("../models/Event");
+import auth from "../middleware/auth.js";
+import Project from "../models/Project.js";
+import User from "../models/User.js";
+import Task from "../models/Task.js";
+import Activity from "../models/Activity.js";
+import Event from "../models/Event.js";
+
 
 // @route   GET /api/dashboard
 // @desc    Get dashboard data
@@ -128,4 +129,4 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

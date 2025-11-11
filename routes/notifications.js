@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const Notification = require("../models/Notification");
-const auth = require("../middleware/auth");
+import Notification from "../models/Notification.js";
+import auth from "../middleware/auth.js";
+
 
 // Get all notifications for the current user
 router.get("/", auth, async (req, res) => {
@@ -72,4 +73,4 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

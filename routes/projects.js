@@ -1,8 +1,9 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const Project = require("../models/Project");
-const Team = require("../models/Team");
-const auth = require("../middleware/auth");
+import Project from "../models/Project.js";
+import Team from "../models/Team.js";
+import auth from "../middleware/auth.js";
+
 
 // Get all projects for current user
 router.get("/", auth, async (req, res) => {
@@ -207,4 +208,4 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router;

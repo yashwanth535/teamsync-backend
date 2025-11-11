@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const Task = require("./Task");
+import mongoose from "mongoose";
+import Task from "./Task.js";
+
 
 const TeamSchema = new mongoose.Schema(
   {
@@ -92,4 +93,4 @@ TeamSchema.pre("save", function(next) {
 
 const Team = mongoose.model("Team", TeamSchema);
 
-module.exports = Team;
+export default Team;

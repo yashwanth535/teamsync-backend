@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const Task = require("../models/Task");
-const Project = require("../models/Project");
-const auth = require("../middleware/auth");
-const bcrypt = require('bcryptjs');
+import Task from "../models/Task.js";
+import Project from "../models/Project.js";
+import auth from "../middleware/auth.js";
+import bcrypt from "bcryptjs";
 
 // Get all tasks for a project
 router.get("/project/:projectId", auth, async (req, res) => {
@@ -219,4 +219,4 @@ router.delete("/:id", auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

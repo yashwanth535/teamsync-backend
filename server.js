@@ -1,25 +1,31 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const rateLimit = require("express-rate-limit");
-const helmet = require("helmet");
-const { createServer } = require("http");
-const { Server } = require("socket.io");
-const connectDB = require("./config/db");
+import 'express-async-errors';
+import "source-map-support/register.js";
+
+
+
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+import { createServer } from "http";
+import { Server } from "socket.io";
+import connectDB from "./config/db.js";
+
 
 // Load environment variables
 dotenv.config();
 
 // Import routes
-const authRoutes = require("./routes/auth");
-const projectRoutes = require("./routes/projects");
-const taskRoutes = require("./routes/tasks");
-const teamRoutes = require("./routes/team");
-const dashboardRoutes = require("./routes/dashboard");
-const notificationRoutes = require("./routes/notifications");
+import authRoutes from "./routes/auth.js";
+import projectRoutes from "./routes/projects.js";
+import taskRoutes from "./routes/tasks.js";
+import teamRoutes from "./routes/team.js";
+import dashboardRoutes from "./routes/dashboard.js";
+import notificationRoutes from "./routes/notifications.js";
+
 
 const app = express();
 const httpServer = createServer(app);
@@ -136,6 +142,9 @@ app.use((err, req, res, next) => {
     error: process.env.NODE_ENV === "development" ? err.stack : undefined,
   });
 });
+
+
+
 
 // 404 handler
 app.use((req, res) => {
